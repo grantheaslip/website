@@ -2934,6 +2934,11 @@ mkdirp@0.5.1, mkdirp@^0.5.0, mkdirp@^0.5.1:
   dependencies:
     minimist "0.0.8"
 
+module-alias@^2.2.1:
+  version "2.2.1"
+  resolved "https://registry.yarnpkg.com/module-alias/-/module-alias-2.2.1.tgz#553aea9dc7f99cd45fd75e34a574960dc46550da"
+  integrity sha512-LTez0Eo+YtfUhgzhu/LqxkUzOpD+k5C0wXBLun0L1qE2BhHf6l09dqam8e7BnoMYA6mAlP0vSsGFQ8QHhGN/aQ==
+
 move-concurrently@^1.0.1:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/move-concurrently/-/move-concurrently-1.0.1.tgz#be2c005fda32e0b29af1f05d7c4b33214c701f92"
@@ -3474,6 +3479,28 @@ posix-character-classes@^0.1.0:
   resolved "https://registry.yarnpkg.com/posix-character-classes/-/posix-character-classes-0.1.1.tgz#01eac0fe3b5af71a2a6c02feabb8c1fef7e00eab"
   integrity sha1-AerA/jta9xoqbAL+q7jB/vfgDqs=
 
+preact-render-to-string@^5.0.6:
+  version "5.0.6"
+  resolved "https://registry.yarnpkg.com/preact-render-to-string/-/preact-render-to-string-5.0.6.tgz#3e89078f78e88157a044f91914b348894cd18d03"
+  integrity sha512-VOsbY/YNPJVIxEdzkUJNwhZNEOE5/w4lbEAsBvhsImbpeDsDhCtUvzpZav/j8tHF8HcG6lNWljmkmXfy+KEnsQ==
+  dependencies:
+    pretty-format "^3.8.0"
+
+preact-ssr-prepass@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/preact-ssr-prepass/-/preact-ssr-prepass-1.0.0.tgz#e09f8abbc5e815ff442978b800ed793d948618f7"
+  integrity sha512-X8N22RpESyL+MdOh1tGMooMBmh43vrZsuXGwT0KJiuNp30d6iNRCrA9v2aw95oyeknJQY2+5QQGsL39j+8HxGQ==
+
+preact@^10.0.0-rc.3:
+  version "10.0.0-rc.3"
+  resolved "https://registry.yarnpkg.com/preact/-/preact-10.0.0-rc.3.tgz#258d1bbf11744e0460b8681422cd6a0c18200df7"
+  integrity sha512-IvDc2AGvHJncEtORciLDzpluDF2MsZqf9eo6xHt7HVY4E6OvxZzAePYJtv3siVdEntxmB9NciQpbToT1APqJYQ==
+
+pretty-format@^3.8.0:
+  version "3.8.0"
+  resolved "https://registry.yarnpkg.com/pretty-format/-/pretty-format-3.8.0.tgz#bfbed56d5e9a776645f4b1ff7aa1a3ac4fa3c385"
+  integrity sha1-v77VbV6ad2ZF9LH/eqGjrE+jw4U=
+
 private@^0.1.6:
   version "0.1.8"
   resolved "https://registry.yarnpkg.com/private/-/private-0.1.8.tgz#2381edb3689f7a53d653190060fcf822d2f368ff"
@@ -3631,7 +3658,7 @@ rc@^1.2.7:
     minimist "^1.2.0"
     strip-json-comments "~2.0.1"
 
-react-dom@16.9.0:
+react-dom@^16.9.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react-dom/-/react-dom-16.9.0.tgz#5e65527a5e26f22ae3701131bcccaee9fb0d3962"
   integrity sha512-YFT2rxO9hM70ewk9jq0y6sQk8cL02xm4+IzYBz75CQGlClQQ1Bxq0nhHF6OtSbit+AIahujJgb/CPRibFkMNJQ==
@@ -3656,7 +3683,7 @@ react-is@^16.8.1:
   resolved "https://registry.yarnpkg.com/react-is/-/react-is-16.9.0.tgz#21ca9561399aad0ff1a7701c01683e8ca981edcb"
   integrity sha512-tJBzzzIgnnRfEm046qRcURvwQnZVXmuCbscxUO5RWrGTXpon2d4c8mI0D8WE6ydVIm29JiLB6+RslkIvym9Rjw==
 
-react@16.9.0:
+react@^16.9.0:
   version "16.9.0"
   resolved "https://registry.yarnpkg.com/react/-/react-16.9.0.tgz#40ba2f9af13bc1a38d75dbf2f4359a5185c4f7aa"
   integrity sha512-+7LQnFBwkiw+BobzOF6N//BdoNw0ouwmSJTEm9cglOOmsg/TMiFHZLe2sEoN5M7LgJTj9oHH0gxklfnQe66S1w==
