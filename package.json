@@ -15,7 +15,8 @@
     "preact": "^10.0.0-rc.3",
     "preact-render-to-string": "^5.0.6",
     "preact-ssr-prepass": "^1.0.0",
-    "typescript": "^3.6.3"
+    "typescript": "^3.6.3",
+    "webpack-bundle-analyzer": "^3.5.0"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^2.2.0",
