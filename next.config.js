@@ -7,6 +7,7 @@ module.exports = withCSS({
     modern: process.env.NODE_ENV === 'production',
   },
   generateEtags: false,
+  poweredByHeader: false,
   webpack: (config, options) => {
     if (!options.defaultLoaders) {
       throw new Error(

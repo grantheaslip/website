@@ -1,7 +1,13 @@
+import Head from 'next/head';
+
 import { Page } from '../components/Page';
 
 const Home = () => (
   <Page>
+    <Head>
+      <title>Grant Heaslip</title>
+    </Head>
+
     <h1>Grant Heaslip</h1>
 
     <p>

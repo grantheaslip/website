@@ -21,6 +21,7 @@ module.exports = {
       },
     ],
     'no-console': 'off',
+    'object-curly-newline': 'off',
     'object-shorthand': ['error', 'never'],
     'quote-props': ['error', 'consistent-as-needed'],
     'quotes': ['warn', 'single'],
