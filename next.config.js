@@ -1,6 +1,8 @@
 /* eslint-disable no-param-reassign */
 
-module.exports = {
+const withCSS = require('@zeit/next-css');
+
+module.exports = withCSS({
   experimental: {
     modern: process.env.NODE_ENV === 'production',
   },
@@ -36,6 +38,18 @@ module.exports = {
       );
     }
 
+    config.module.rules.push({
+      test: /\.tsx$/,
+      use: [
+        {
+          loader: 'linaria/loader',
+          options: {
+            sourceMap: process.env.NODE_ENV !== 'production',
+          },
+        },
+      ],
+    });
+
     return config;
   },
-};
+});

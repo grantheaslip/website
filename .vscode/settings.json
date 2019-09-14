@@ -4,5 +4,11 @@
     "javascriptreact",
     "typescript",
     "typescriptreact"
-  ]
+  ],
+  "files.exclude": {
+    ".linaria-cache": true,
+    ".next": true,
+    "node_modules/": true,
+    "yarn.lock": true
+  }
 }
