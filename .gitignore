@@ -16,6 +16,7 @@
 /build
 
 # misc
+*.code-workspace
 .DS_Store
 .env*
 
