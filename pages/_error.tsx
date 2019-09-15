@@ -1,6 +1,6 @@
 import { Page } from '../components/Page';
 
-const Home = () => (
+const Error = () => (
   <Page>
     <h1>404: Not found</h1>
 
@@ -18,4 +18,4 @@ const Home = () => (
   </Page>
 );
 
-export default Home;
+export default Error;
