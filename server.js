@@ -1,5 +1,4 @@
-// Via https://github.com/aomkirby123/nextjs-preactX/blob/af6aaabf04029e910c8e17d2aab65be59789d3bd/server.js
-require('module-alias/register');
+const throng = require('throng');
 
 const port = parseInt(process.env.PORT, 10) || 3000;
 const dev = process.env.NODE_ENV !== 'production';
@@ -8,20 +7,41 @@ const { createServer } = require('http');
 const { parse } = require('url');
 const next = require('next');
 
-const app = next({
-  dev: dev,
-});
-const handle = app.getRequestHandler();
+const startMaster = () => {
+  console.info('Started master process.');
+};
 
-app.prepare().then(() => {
-  const server = createServer((req, res) => {
-    const parsedUrl = parse(req.url, true);
-    handle(req, res, parsedUrl);
+const startWorker = () => {
+  const app = next({
+    dev: dev,
   });
+  const handle = app.getRequestHandler();
 
-  server.listen(port, (err) => {
-    if (err) throw err;
+  app.prepare().then(() => {
+    const server = createServer((req, res) => {
+      const parsedUrl = parse(req.url, true);
+      handle(req, res, parsedUrl);
+    });
 
-    console.log(`> Ready on http://localhost:${port}`);
+    server.listen(port, (err) => {
+      if (err) throw err;
+
+      console.info(
+        `Started worker process on port ${port} (${
+          dev ? 'development' : 'production'
+        } mode).`,
+      );
+    });
   });
-});
+};
+
+if (dev) {
+  startWorker();
+} else {
+  throng({
+    workers: 4,
+    lifetime: Infinity,
+    master: startMaster,
+    start: startWorker,
+  });
+}
