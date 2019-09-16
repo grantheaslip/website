@@ -20,17 +20,48 @@ module.exports = withCSS({
       );
     }
 
-    config.module.rules.push({
-      test: /\.tsx$/,
-      use: [
-        {
-          loader: 'linaria/loader',
-          options: {
-            sourceMap: process.env.NODE_ENV !== 'production',
+    config.module.rules.push(
+      {
+        test: /\.tsx$/,
+        use: [
+          {
+            loader: 'linaria/loader',
+            options: {
+              sourceMap: process.env.NODE_ENV !== 'production',
+            },
           },
-        },
-      ],
-    });
+        ],
+      },
+      {
+        test: /\.(ico|png|txt)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name]-[hash].[ext]',
+              outputPath: 'static',
+              publicPath: '/_next/static',
+            },
+          },
+        ],
+      },
+      {
+        test: /(manifest\.webmanifest|browserconfig\.xml)$/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: '[path][name]-[hash].[ext]',
+              outputPath: 'static',
+              publicPath: '/_next/static',
+            },
+          },
+          {
+            loader: 'app-manifest-loader',
+          },
+        ],
+      },
+    );
 
     return config;
   },
