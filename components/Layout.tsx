@@ -2,6 +2,8 @@ import { css } from 'linaria';
 import Head from 'next/head';
 import { ReactChild } from 'react';
 
+import { getFormattedTitle } from '../utils';
+
 import appleTouchIcon180x180Png from '../assets/favicons/apple-touch-icon-180x180.png';
 import androidChrome192x192Png from '../assets/favicons/android-chrome-192x192.png';
 import browserconfigXml from '../assets/browserconfig.xml';
@@ -80,6 +82,8 @@ const styles = {
   `,
 };
 
+const title = getFormattedTitle();
+
 export function Layout({
   children,
 }: {
@@ -88,7 +92,7 @@ export function Layout({
   return (
     <div className={styles.centred}>
       <Head>
-        <title>Grant Heaslip</title>
+        <title>{title}</title>
 
         {/* ================
             === Favicons ===

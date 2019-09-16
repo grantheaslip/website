@@ -2,10 +2,14 @@ import Head from 'next/head';
 
 import { Page } from '../components/Page';
 
+import { getFormattedTitle } from '../utils';
+
+const title = getFormattedTitle();
+
 const Home = () => (
   <Page>
     <Head>
-      <title>Grant Heaslip</title>
+      <title>{title}</title>
     </Head>
 
     <h1>Grant Heaslip</h1>
