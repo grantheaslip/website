@@ -103,7 +103,7 @@ class MyDocument extends Document {
 
   render() {
     return (
-      <Html>
+      <Html lang='en-CA' dir='ltr'>
         {isDevelopment ? <Head /> : <CustomHead />}
         <body>
           <Main />
