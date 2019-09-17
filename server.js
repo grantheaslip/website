@@ -20,6 +20,21 @@ const startWorker = () => {
   app.prepare().then(() => {
     const server = createServer((req, res) => {
       const parsedUrl = parse(req.url, true);
+
+      const { pathname } = parsedUrl;
+
+      if (pathname.endsWith('/index')) {
+        res.writeHead(301, { Location: pathname.replace(/index$/, '') });
+
+        return res.end();
+      }
+
+      if (pathname.endsWith('/index.html')) {
+        res.writeHead(301, { Location: pathname.replace(/index\.html$/, '') });
+
+        return res.end();
+      }
+
       handle(req, res, parsedUrl);
     });
 
