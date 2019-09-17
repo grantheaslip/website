@@ -18,7 +18,7 @@
 # misc
 *.code-workspace
 .DS_Store
-.env*
+.env
 
 # debug
 npm-debug.log*
