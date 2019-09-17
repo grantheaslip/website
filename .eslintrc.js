@@ -23,6 +23,7 @@ module.exports = {
     'no-console': 'off',
     'object-curly-newline': 'off',
     'object-shorthand': ['error', 'never'],
+    'operator-linebreak': 'off',
     'quote-props': ['error', 'consistent-as-needed'],
     'quotes': ['warn', 'single'],
     'react/react-in-jsx-scope': 'off',

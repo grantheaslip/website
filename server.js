@@ -21,21 +21,49 @@ const startWorker = () => {
     const server = createServer((req, res) => {
       const parsedUrl = parse(req.url, true);
 
-      const { pathname } = parsedUrl;
+      const { pathname, search } = parsedUrl;
 
+      // ===================================================
+      // === Redirect to canonical protocol and hostname ===
+      // ===================================================
+      const requestProtocol = req.headers['x-forwarded-proto'] || 'http';
+      const requestHost = req.headers.host;
+
+      const canonicalProtocol = process.env.CANONICAL_PROTOCOL;
+      const canonicalHost = process.env.CANONICAL_HOST;
+
+      if (
+        typeof canonicalProtocol !== 'undefined' &&
+        typeof canonicalHost !== 'undefined' &&
+        (requestProtocol !== canonicalProtocol || requestHost !== canonicalHost)
+      ) {
+        res.writeHead(301, {
+          Location: `${canonicalProtocol}://${canonicalHost}${pathname}${search ||
+            ''}`,
+        });
+
+        return res.end();
+      }
+
+      // =================================
+      // === Redirect from *index to * ===
+      // =================================
       if (pathname.endsWith('/index')) {
         res.writeHead(301, { Location: pathname.replace(/index$/, '') });
 
         return res.end();
       }
 
+      // ======================================
+      // === Redirect from *index.html to * ===
+      // ======================================
       if (pathname.endsWith('/index.html')) {
         res.writeHead(301, { Location: pathname.replace(/index\.html$/, '') });
 
         return res.end();
       }
 
-      handle(req, res, parsedUrl);
+      return handle(req, res, parsedUrl);
     });
 
     server.listen(port, (err) => {
