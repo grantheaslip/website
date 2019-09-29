@@ -2,6 +2,7 @@
   "name": "website",
   "version": "1.0.0-rc.1",
   "private": true,
+  "license": "BSD-3-Clause",
   "scripts": {
     "build": "next build",
     "dev": "NODE_ENV=development node server.js",
