@@ -1,5 +1,7 @@
 /* eslint-disable max-classes-per-file */
 
+import fs from 'fs';
+
 import React from 'react';
 
 import Document, {
@@ -11,6 +13,20 @@ import Document, {
 } from 'next/document';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
+
+export function getAppVersion(): Promise<string> {
+  return new Promise((resolve, reject) => {
+    fs.readFile('./package.json', 'utf8', (err, data) => {
+      if (err) {
+        console.error('Couldn’t read package.json!');
+        reject(err);
+      } else {
+        const packageJson = JSON.parse(data);
+        resolve(packageJson.version);
+      }
+    });
+  });
+}
 
 /* eslint-disable */
 
@@ -77,10 +93,23 @@ class CustomHead extends Head {
 
 /* eslint-enable */
 
+let appVersion: string | null;
+
 class MyDocument extends Document {
   static async getInitialProps(ctx) {
     const initialProps = await Document.getInitialProps(ctx);
-    return { ...initialProps };
+
+    if (typeof appVersion !== 'string') {
+      console.log('Setting appVersion');
+      appVersion = await getAppVersion();
+    }
+
+    console.log(appVersion);
+
+    return {
+      appVersion: appVersion,
+      ...initialProps,
+    };
   }
 
   getChildContext(): DocumentComponentContext {
@@ -104,7 +133,15 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang='en-CA' dir='ltr'>
-        {isDevelopment ? <Head /> : <CustomHead />}
+        {isDevelopment ? (
+          <Head>
+            <meta name='website:version' content={appVersion} />
+          </Head>
+        ) : (
+          <CustomHead>
+            <meta name='website:version' content={appVersion} />
+          </CustomHead>
+        )}
         <body>
           <Main />
           {isDevelopment && <NextScript />}
