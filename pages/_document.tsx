@@ -100,11 +100,8 @@ class MyDocument extends Document {
     const initialProps = await Document.getInitialProps(ctx);
 
     if (typeof appVersion !== 'string') {
-      console.log('Setting appVersion');
       appVersion = await getAppVersion();
     }
-
-    console.log(appVersion);
 
     return {
       appVersion: appVersion,
