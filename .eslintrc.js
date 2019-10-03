@@ -5,10 +5,13 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['airbnb'],
+  extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended'],
   plugins: ['unicorn'],
   rules: {
-    'arrow-parens': ['warn', 'always'],
+    // Same as Airbnb style - re-enabled since it’s disabled by plugin:prettier/recommended
+    'arrow-body-style': ['error', 'as-needed', {
+      requireReturnForObjectLiteral: false,
+    }],
     'class-methods-use-this': 'off',
     'import/prefer-default-export': 'off',
     'linebreak-style': ['error', 'unix'],
@@ -23,11 +26,9 @@ module.exports = {
     'no-console': 'off',
     'object-curly-newline': 'off',
     'object-shorthand': ['error', 'never'],
-    'operator-linebreak': 'off',
+    'prettier/prettier': 'warn',
     'quote-props': ['error', 'consistent-as-needed'],
-    'quotes': ['warn', 'single'],
     'react/react-in-jsx-scope': 'off',
-    'semi': ['error', 'always'],
     'unicorn/no-unused-properties': 'warn',
   },
   settings: {
@@ -61,13 +62,13 @@ module.exports = {
             aspects: ['invalidHref', 'preferButton'],
           },
         ],
-        'jsx-quotes': ['warn', 'prefer-single'],
         'react/jsx-filename-extension': [
           1,
           {
             extensions: ['.jsx', '.tsx'],
           },
         ],
+        // Disabled until https://github.com/yannickcr/eslint-plugin-react/issues/1848 is fixed
         'react/jsx-one-expression-per-line': 'off',
         '@typescript-eslint/array-type': [
           'error',
@@ -78,7 +79,6 @@ module.exports = {
         '@typescript-eslint/ban-ts-ignore': 'off',
         '@typescript-eslint/explicit-function-return-type': 'off',
         '@typescript-eslint/no-unused-vars': 'off',
-        '@typescript-eslint/no-use-before-define': 'off',
       },
       settings: {
         'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],

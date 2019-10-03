@@ -11,6 +11,7 @@ const styles = {
     border: 1px solid #e1e1e1;
     border: 1px solid var(--colourPageBorder);
     float: left;
+    width: 100%;
 
     h1 {
       font-family: 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif;
