@@ -1,5 +1,9 @@
 # Website changelog
 
+## 1.0.0 [2019-10-02]
+
+Same as 1.0.0-rc.2.
+
 ## 1.0.0-rc.2 [2019-10-02]
 
 ### Additions
