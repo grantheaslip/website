@@ -15,8 +15,8 @@ const Home = () => (
     <h1>Grant Heaslip</h1>
 
     <p>
-      I’m a web developer, wannabe polymath, and video game nerd living in
-      Toronto, Canada. I still don’t have much of anything figured out.
+      I’m a web developer and video game nerd living in Toronto, Canada. I care
+      way too much about things that don’t matter.
     </p>
 
     <p>
