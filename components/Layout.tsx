@@ -1,6 +1,6 @@
 import { css } from 'linaria';
 import Head from 'next/head';
-import { ReactChild } from 'react';
+import { FunctionComponent } from 'react';
 
 import { getFormattedTitle } from '../utils';
 
@@ -84,57 +84,43 @@ const styles = {
 
 const title = getFormattedTitle();
 
-export function Layout({
-  children,
-}: {
-  children: ReactChild | Array<ReactChild>;
-}) {
-  return (
-    <div className={styles.centred}>
-      <Head>
-        <title>{title}</title>
+const Layout: FunctionComponent = ({ children }) => (
+  <div className={styles.centred}>
+    <Head>
+      <title>{title}</title>
 
-        {/* ================
+      {/* ================
             === Favicons ===
             ================ */}
-        <link
-          rel='apple-touch-icon'
-          sizes='180x180'
-          href={appleTouchIcon180x180Png}
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          sizes='32x32'
-          href={favicon32x32Png}
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          href={favicon194x194Png}
-          sizes='194x194'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          href={androidChrome192x192Png}
-          sizes='192x192'
-        />
-        <link
-          rel='icon'
-          type='image/png'
-          href={favicon16x16Png}
-          sizes='16x16'
-        />
-        <link rel='shortcut icon' href={faviconIco} />
+      <link
+        rel='apple-touch-icon'
+        sizes='180x180'
+        href={appleTouchIcon180x180Png}
+      />
+      <link rel='icon' type='image/png' sizes='32x32' href={favicon32x32Png} />
+      <link
+        rel='icon'
+        type='image/png'
+        href={favicon194x194Png}
+        sizes='194x194'
+      />
+      <link
+        rel='icon'
+        type='image/png'
+        href={androidChrome192x192Png}
+        sizes='192x192'
+      />
+      <link rel='icon' type='image/png' href={favicon16x16Png} sizes='16x16' />
+      <link rel='shortcut icon' href={faviconIco} />
 
-        {/* =================
+      {/* =================
             === Manifests ===
             ================= */}
-        <link rel='manifest' href={manifestWebmanifest} />
-        <meta name='msapplication-config' content={browserconfigXml} />
-      </Head>
-      {children}
-    </div>
-  );
-}
+      <link rel='manifest' href={manifestWebmanifest} />
+      <meta name='msapplication-config' content={browserconfigXml} />
+    </Head>
+    {children}
+  </div>
+);
+
+export default Layout;

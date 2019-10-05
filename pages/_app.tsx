@@ -1,6 +1,8 @@
+import { AppProps } from 'next/app';
 import Head from 'next/head';
+import { FunctionComponent } from 'react';
 
-const WebsiteApp = ({ Component, pageProps }) => {
+const WebsiteApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => {
   const websiteVersion = process.env.WEBSITE_VERSION;
 
   return (

@@ -1,7 +1,5 @@
 /* eslint-disable max-classes-per-file */
 
-import fs from 'fs';
-
 import React from 'react';
 
 import Document, {

@@ -1,6 +1,6 @@
 import { css } from 'linaria';
-import { ReactChild } from 'react';
-import { Layout } from './Layout';
+import { FunctionComponent } from 'react';
+import Layout from './Layout';
 
 const styles = {
   page: css`
@@ -38,17 +38,10 @@ const styles = {
     }
   `,
 };
+const Page: FunctionComponent = ({ children }) => (
+  <Layout>
+    <main className={styles.page}>{children}</main>
+  </Layout>
+);
 
-export function Page({
-  children,
-  title = null,
-}: {
-  children: Array<ReactChild>;
-  title?: string | null;
-}) {
-  return (
-    <Layout>
-      <main className={styles.page}>{children}</main>
-    </Layout>
-  );
-}
+export default Page;
