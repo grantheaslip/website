@@ -28,6 +28,7 @@ module.exports = {
     'object-shorthand': ['error', 'never'],
     'prettier/prettier': 'warn',
     'quote-props': ['error', 'consistent-as-needed'],
+    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
     'unicorn/no-unused-properties': 'warn',
   },

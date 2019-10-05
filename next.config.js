@@ -2,7 +2,12 @@
 
 const withCSS = require('@zeit/next-css');
 
+const packageJson = require('./package.json');
+
 module.exports = withCSS({
+  env: {
+    WEBSITE_VERSION: packageJson.version,
+  },
   experimental: { publicDirectory: true },
   generateEtags: false,
   poweredByHeader: false,

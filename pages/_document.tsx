@@ -14,20 +14,6 @@ import Document, {
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
-export function getAppVersion(): Promise<string> {
-  return new Promise((resolve, reject) => {
-    fs.readFile('./package.json', 'utf8', (err, data) => {
-      if (err) {
-        console.error('Couldn’t read package.json!');
-        reject(err);
-      } else {
-        const packageJson = JSON.parse(data);
-        resolve(packageJson.version);
-      }
-    });
-  });
-}
-
 /* eslint-disable */
 
 class CustomHead extends Head {
@@ -93,22 +79,7 @@ class CustomHead extends Head {
 
 /* eslint-enable */
 
-let appVersion: string | null;
-
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-
-    if (typeof appVersion !== 'string') {
-      appVersion = await getAppVersion();
-    }
-
-    return {
-      appVersion: appVersion,
-      ...initialProps,
-    };
-  }
-
   getChildContext(): DocumentComponentContext {
     if (!isDevelopment) {
       // @ts-ignore
@@ -130,15 +101,7 @@ class MyDocument extends Document {
   render() {
     return (
       <Html lang='en-CA' dir='ltr'>
-        {isDevelopment ? (
-          <Head>
-            <meta name='website:version' content={appVersion} />
-          </Head>
-        ) : (
-          <CustomHead>
-            <meta name='website:version' content={appVersion} />
-          </CustomHead>
-        )}
+        {isDevelopment ? <Head /> : <CustomHead />}
         <body>
           <Main />
           {isDevelopment && <NextScript />}
