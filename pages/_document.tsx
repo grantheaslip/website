@@ -7,7 +7,6 @@ import Document, {
   Head,
   Main,
   NextScript,
-  DocumentComponentContext,
 } from 'next/document';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -78,24 +77,6 @@ class CustomHead extends Head {
 /* eslint-enable */
 
 class MyDocument extends Document {
-  getChildContext(): DocumentComponentContext {
-    if (!isDevelopment) {
-      // @ts-ignore
-      this.props.files = this.props.files.filter(
-        (fileName) => !fileName.endsWith('.js'),
-      );
-    }
-
-    return {
-      _documentProps: this.props,
-      // In dev we invalidate the cache by appending a timestamp to the resource URL.
-      // This is a workaround to fix https://github.com/zeit/next.js/issues/5860
-      // TODO: remove this workaround when https://bugs.webkit.org/show_bug.cgi?id=187726 is fixed.
-      _devOnlyInvalidateCacheQueryString:
-        process.env.NODE_ENV !== 'production' ? `?ts=${Date.now()}` : '',
-    };
-  }
-
   render() {
     return (
       <Html lang='en-CA' dir='ltr'>
