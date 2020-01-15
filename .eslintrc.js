@@ -5,15 +5,15 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended'],
+  extends: ['airbnb', 'airbnb/hooks'],
   plugins: ['unicorn'],
   rules: {
-    // Same as Airbnb style - re-enabled since it’s disabled by plugin:prettier/recommended
-    'arrow-body-style': ['error', 'as-needed', {
-      requireReturnForObjectLiteral: false,
-    }],
     'class-methods-use-this': 'off',
     'import/prefer-default-export': 'off',
+    'jsx-quotes': [
+      'warn',
+      'prefer-single',
+    ],
     'linebreak-style': ['error', 'unix'],
     'max-len': [
       'warn',
@@ -26,7 +26,6 @@ module.exports = {
     'no-console': 'off',
     'object-curly-newline': 'off',
     'object-shorthand': ['error', 'never'],
-    'prettier/prettier': 'warn',
     'quote-props': ['error', 'consistent-as-needed'],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
