@@ -53,6 +53,16 @@ module.exports = {
         project: './tsconfig.json',
       },
       rules: {
+        'import/extensions': [
+          'error',
+          'ignorePackages',
+          {
+            js: 'never',
+            jsx: 'never',
+            ts: 'never',
+            tsx: 'never',
+          },
+        ],
         // Via https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/402#issuecomment-368305051
         // Required until https://github.com/zeit/next.js/issues/5533 is resolved
         'jsx-a11y/anchor-is-valid': [

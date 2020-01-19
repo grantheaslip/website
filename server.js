@@ -33,13 +33,14 @@ const startWorker = () => {
       const canonicalHost = process.env.CANONICAL_HOST;
 
       if (
-        typeof canonicalProtocol !== 'undefined' &&
-        typeof canonicalHost !== 'undefined' &&
-        (requestProtocol !== canonicalProtocol || requestHost !== canonicalHost)
+        typeof canonicalProtocol !== 'undefined'
+        && typeof canonicalHost !== 'undefined'
+        && (requestProtocol !== canonicalProtocol || requestHost !== canonicalHost)
       ) {
         res.writeHead(301, {
-          Location: `${canonicalProtocol}://${canonicalHost}${pathname}${search ||
-            ''}`,
+          Location: (
+            `${canonicalProtocol}://${canonicalHost}${pathname}${search || ''}`
+          ),
         });
 
         return res.end();
