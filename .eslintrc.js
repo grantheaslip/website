@@ -25,7 +25,6 @@ module.exports = {
     ],
     'no-console': 'off',
     'object-curly-newline': 'off',
-    'object-shorthand': ['error', 'never'],
     'quote-props': ['error', 'consistent-as-needed'],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',

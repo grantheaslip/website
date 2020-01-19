@@ -4,11 +4,36 @@ const withCSS = require('@zeit/next-css');
 
 const packageJson = require('./package.json');
 
+const redirects = () => [
+  {
+    source: '/index',
+    destination: '/',
+    statusCode: 301,
+  },
+  {
+    source: '/:path*/index',
+    destination: '/:path*',
+    statusCode: 301,
+  },
+  {
+    source: '/index.html',
+    destination: '/',
+    statusCode: 301,
+  },
+  {
+    source: '/:path*/index.html',
+    destination: '/:path*',
+    statusCode: 301,
+  },
+];
+
 module.exports = withCSS({
   env: {
     WEBSITE_VERSION: packageJson.version,
   },
-  experimental: { publicDirectory: true },
+  experimental: {
+    redirects,
+  },
   generateEtags: false,
   poweredByHeader: false,
   webpack: (config, options) => {

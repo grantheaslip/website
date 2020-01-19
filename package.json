@@ -10,18 +10,17 @@
   "private": true,
   "license": "BSD-3-Clause",
   "engines": {
-    "node": "^12.7.0",
-    "yarn": "^1.19.0"
+    "node": "12.x"
   },
   "scripts": {
     "build": "next build",
-    "build-and-start": "yarn build && yarn start",
-    "dev": "NODE_ENV=development node server.js",
+    "build-and-start": "next build && next start",
+    "dev": "next",
     "eslint": "eslint . --ext js,tsx",
     "eslint-fix": "eslint . --ext js,tsx --fix",
     "heroku-local-dev": "heroku local -f Procfile-dev",
     "heroku-local-start": "heroku local -f Procfile",
-    "start": "NODE_ENV=production node server.js"
+    "start": "next start"
   },
   "dependencies": {
     "@types/node": "~12.7.8",
