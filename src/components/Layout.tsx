@@ -2,7 +2,7 @@ import { css } from 'linaria';
 import Head from 'next/head';
 import { FunctionComponent } from 'react';
 
-import { getFormattedTitle } from '../utils';
+import { getFormattedTitle } from '../../utils';
 
 import appleTouchIcon180x180Png from '../assets/favicons/apple-touch-icon-180x180.png';
 import androidChrome192x192Png from '../assets/favicons/android-chrome-192x192.png';
