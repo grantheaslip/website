@@ -2,8 +2,6 @@
 
 const withCSS = require('@zeit/next-css');
 
-const packageJson = require('./package.json');
-
 const redirects = () => [
   {
     source: '/index',
@@ -29,7 +27,8 @@ const redirects = () => [
 
 module.exports = withCSS({
   env: {
-    WEBSITE_VERSION: packageJson.version,
+    // TODO: Expose package.json version (seems to be missing in Zeit Now production)
+    // WEBSITE_VERSION: packageJson.version,
   },
   experimental: {
     redirects,
