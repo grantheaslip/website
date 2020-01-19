@@ -23,6 +23,11 @@ const redirects = () => [
     destination: '/:path*',
     statusCode: 301,
   },
+  {
+    source: '/:path+/',
+    destination: '/:path+',
+    statusCode: 301,
+  },
 ];
 
 module.exports = withCSS({
