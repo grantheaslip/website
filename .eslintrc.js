@@ -5,8 +5,14 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['airbnb', 'airbnb/hooks'],
-  plugins: ['unicorn'],
+  extends: [
+    'airbnb',
+    'airbnb/hooks',
+  ],
+  plugins: [
+    'emotion',
+    'unicorn',
+  ],
   rules: {
     'class-methods-use-this': 'off',
     'import/prefer-default-export': 'off',
@@ -52,6 +58,11 @@ module.exports = {
         project: './tsconfig.json',
       },
       rules: {
+        'emotion/jsx-import': 'error',
+        'emotion/syntax-preference': [
+          'error',
+          'string',
+        ],
         'import/extensions': [
           'error',
           'ignorePackages',

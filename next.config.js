@@ -1,7 +1,5 @@
 /* eslint-disable no-param-reassign */
 
-const withCSS = require('@zeit/next-css');
-
 const redirects = () => [
   {
     source: '/index',
@@ -30,7 +28,7 @@ const redirects = () => [
   },
 ];
 
-module.exports = withCSS({
+module.exports = {
   env: {
     // TODO: Expose package.json version (seems to be missing in Zeit Now production)
     // WEBSITE_VERSION: packageJson.version,
@@ -56,17 +54,6 @@ module.exports = withCSS({
     }
 
     config.module.rules.push(
-      {
-        test: /\.tsx$/,
-        use: [
-          {
-            loader: 'linaria/loader',
-            options: {
-              sourceMap: process.env.NODE_ENV !== 'production',
-            },
-          },
-        ],
-      },
       {
         test: /\.(ico|png|txt)$/,
         use: [
@@ -100,4 +87,4 @@ module.exports = withCSS({
 
     return config;
   },
-});
+};
