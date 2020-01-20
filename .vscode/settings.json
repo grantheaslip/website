@@ -1,31 +1,18 @@
 {
   "editor.formatOnSave": false,
   "editor.tabSize": 2,
-  "eslint.autoFixOnSave": true,
   "eslint.validate": [
-    {
-      "language": "javascript",
-      "autoFix": true
-    },
-    {
-      "language": "javascriptreact",
-      "autoFix": true
-    },
-    {
-      "language": "typescript",
-      "autoFix": true
-    },
-    {
-      "language": "typescriptreact",
-      "autoFix": true
-    }
+    "javascript",
+    "javascriptreact",
+    "typescript",
+    "typescriptreact"
   ],
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
   "files.exclude": {
-    ".linaria-cache": true,
     ".next": true,
     "node_modules/": true,
     "yarn.lock": true
-  },
-  "javascript.validate.enable": true,
-  "typescript.validate.enable": true
+  }
 }

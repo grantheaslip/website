@@ -1,12 +1,12 @@
 import Head from 'next/head';
+import { FunctionComponent } from 'react';
 
-import { Page } from '../components/Page';
-
-import { getFormattedTitle } from '../utils';
+import Page from 'components/Page';
+import { getFormattedTitle } from 'lib/utils';
 
 const title = getFormattedTitle();
 
-const Home = () => (
+const Home: FunctionComponent = () => (
   <Page>
     <Head>
       <title>{title}</title>

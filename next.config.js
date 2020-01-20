@@ -1,16 +1,50 @@
-/* eslint-disable no-param-reassign */
+const TsconfigPathsWebpackPlugin = require('tsconfig-paths-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
-const withCSS = require('@zeit/next-css');
+const redirects = () => [
+  {
+    source: '/index',
+    destination: '/',
+    statusCode: 301,
+  },
+  {
+    source: '/:path*/index',
+    destination: '/:path*',
+    statusCode: 301,
+  },
+  {
+    source: '/index.html',
+    destination: '/',
+    statusCode: 301,
+  },
+  {
+    source: '/:path*/index.html',
+    destination: '/:path*',
+    statusCode: 301,
+  },
+  {
+    source: '/:path+/',
+    destination: '/:path+',
+    statusCode: 301,
+  },
+];
 
-module.exports = withCSS({
-  experimental: { publicDirectory: true },
+module.exports = {
+  env: {
+    // TODO: Expose package.json version (seems to be missing in Zeit Now production)
+    // WEBSITE_VERSION: packageJson.version,
+  },
+  experimental: {
+    redirects,
+  },
   generateEtags: false,
   poweredByHeader: false,
   webpack: (config, options) => {
-    if (process.env.RUN_WEBPACK_BUNDLE_ANALYZER === 'true') {
-      // eslint-disable-next-line global-require
-      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+    config.resolve.plugins.push(
+      new TsconfigPathsWebpackPlugin(),
+    );
 
+    if (process.env.RUN_WEBPACK_BUNDLE_ANALYZER === 'true') {
       config.plugins.push(
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',
@@ -22,17 +56,6 @@ module.exports = withCSS({
     }
 
     config.module.rules.push(
-      {
-        test: /\.tsx$/,
-        use: [
-          {
-            loader: 'linaria/loader',
-            options: {
-              sourceMap: process.env.NODE_ENV !== 'production',
-            },
-          },
-        ],
-      },
       {
         test: /\.(ico|png|txt)$/,
         use: [
@@ -66,4 +89,4 @@ module.exports = withCSS({
 
     return config;
   },
-});
+};

@@ -5,15 +5,22 @@ module.exports = {
     es6: true,
     node: true,
   },
-  extends: ['airbnb', 'airbnb/hooks', 'plugin:prettier/recommended'],
-  plugins: ['unicorn'],
+  extends: [
+    'airbnb',
+    'airbnb/hooks',
+  ],
+  plugins: [
+    'emotion',
+    'simple-import-sort',
+    'sort-destructure-keys',
+    'unicorn',
+  ],
   rules: {
-    // Same as Airbnb style - re-enabled since it’s disabled by plugin:prettier/recommended
-    'arrow-body-style': ['error', 'as-needed', {
-      requireReturnForObjectLiteral: false,
-    }],
-    'class-methods-use-this': 'off',
     'import/prefer-default-export': 'off',
+    'jsx-quotes': [
+      'warn',
+      'prefer-single',
+    ],
     'linebreak-style': ['error', 'unix'],
     'max-len': [
       'warn',
@@ -24,11 +31,10 @@ module.exports = {
       },
     ],
     'no-console': 'off',
-    'object-curly-newline': 'off',
-    'object-shorthand': ['error', 'never'],
-    'prettier/prettier': 'warn',
     'quote-props': ['error', 'consistent-as-needed'],
+    'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'sort-destructure-keys/sort-destructure-keys': 'warn',
     'unicorn/no-unused-properties': 'warn',
   },
   settings: {
@@ -53,6 +59,21 @@ module.exports = {
         project: './tsconfig.json',
       },
       rules: {
+        'emotion/jsx-import': 'error',
+        'emotion/syntax-preference': [
+          'error',
+          'string',
+        ],
+        'import/extensions': [
+          'error',
+          'ignorePackages',
+          {
+            js: 'never',
+            jsx: 'never',
+            ts: 'never',
+            tsx: 'never',
+          },
+        ],
         // Via https://github.com/evcohen/eslint-plugin-jsx-a11y/issues/402#issuecomment-368305051
         // Required until https://github.com/zeit/next.js/issues/5533 is resolved
         'jsx-a11y/anchor-is-valid': [
@@ -60,6 +81,15 @@ module.exports = {
           {
             components: ['Link'],
             aspects: ['invalidHref', 'preferButton'],
+          },
+        ],
+        'no-restricted-imports': [
+          'warn',
+          {
+            'patterns': [
+              './',
+              '../'
+            ],
           },
         ],
         'react/jsx-filename-extension': [
@@ -70,6 +100,21 @@ module.exports = {
         ],
         // Disabled until https://github.com/yannickcr/eslint-plugin-react/issues/1848 is fixed
         'react/jsx-one-expression-per-line': 'off',
+        'simple-import-sort/sort': [
+          'warn',
+          {
+            groups: [
+              // Default groups
+              ['^\\u0000'],
+              ['^@?\\w'],
+              ['^[^.]'],
+              ['^\\.'],
+              // Aliased local directories (due to tsconfig.json baseUrl)
+              ['^(components|lib|pages)(/.*|$)'],
+              ['^(assets)(/.*|$)'],
+            ],
+          },
+        ],
         '@typescript-eslint/array-type': [
           'error',
           {
@@ -84,6 +129,9 @@ module.exports = {
         'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
         'import/parsers': {
           '@typescript-eslint/parser': ['.ts', '.tsx'],
+        },
+        'import/resolver': {
+          typescript: {}
         },
       },
     },

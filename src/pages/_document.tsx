@@ -1,32 +1,14 @@
 /* eslint-disable max-classes-per-file */
 
-import fs from 'fs';
-
-import React from 'react';
-
 import Document, {
-  Html,
   Head,
+  Html,
   Main,
   NextScript,
-  DocumentComponentContext,
 } from 'next/document';
+import React from 'react';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
-
-export function getAppVersion(): Promise<string> {
-  return new Promise((resolve, reject) => {
-    fs.readFile('./package.json', 'utf8', (err, data) => {
-      if (err) {
-        console.error('Couldn’t read package.json!');
-        reject(err);
-      } else {
-        const packageJson = JSON.parse(data);
-        resolve(packageJson.version);
-      }
-    });
-  });
-}
 
 /* eslint-disable */
 
@@ -93,52 +75,11 @@ class CustomHead extends Head {
 
 /* eslint-enable */
 
-let appVersion: string | null;
-
 class MyDocument extends Document {
-  static async getInitialProps(ctx) {
-    const initialProps = await Document.getInitialProps(ctx);
-
-    if (typeof appVersion !== 'string') {
-      appVersion = await getAppVersion();
-    }
-
-    return {
-      appVersion: appVersion,
-      ...initialProps,
-    };
-  }
-
-  getChildContext(): DocumentComponentContext {
-    if (!isDevelopment) {
-      // @ts-ignore
-      this.props.files = this.props.files.filter(
-        (fileName) => !fileName.endsWith('.js'),
-      );
-    }
-
-    return {
-      _documentProps: this.props,
-      // In dev we invalidate the cache by appending a timestamp to the resource URL.
-      // This is a workaround to fix https://github.com/zeit/next.js/issues/5860
-      // TODO: remove this workaround when https://bugs.webkit.org/show_bug.cgi?id=187726 is fixed.
-      _devOnlyInvalidateCacheQueryString:
-        process.env.NODE_ENV !== 'production' ? `?ts=${Date.now()}` : '',
-    };
-  }
-
   render() {
     return (
       <Html lang='en-CA' dir='ltr'>
-        {isDevelopment ? (
-          <Head>
-            <meta name='website:version' content={appVersion} />
-          </Head>
-        ) : (
-          <CustomHead>
-            <meta name='website:version' content={appVersion} />
-          </CustomHead>
-        )}
+        {isDevelopment ? <Head /> : <CustomHead />}
         <body>
           <Main />
           {isDevelopment && <NextScript />}
