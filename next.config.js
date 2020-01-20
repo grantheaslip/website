@@ -1,4 +1,5 @@
-/* eslint-disable no-param-reassign */
+const TsconfigPathsWebpackPlugin = require('tsconfig-paths-webpack-plugin');
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 
 const redirects = () => [
   {
@@ -39,10 +40,11 @@ module.exports = {
   generateEtags: false,
   poweredByHeader: false,
   webpack: (config, options) => {
-    if (process.env.RUN_WEBPACK_BUNDLE_ANALYZER === 'true') {
-      // eslint-disable-next-line global-require
-      const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+    config.resolve.plugins.push(
+      new TsconfigPathsWebpackPlugin(),
+    );
 
+    if (process.env.RUN_WEBPACK_BUNDLE_ANALYZER === 'true') {
       config.plugins.push(
         new BundleAnalyzerPlugin({
           analyzerMode: 'static',

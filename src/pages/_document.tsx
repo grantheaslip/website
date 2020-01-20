@@ -1,13 +1,12 @@
 /* eslint-disable max-classes-per-file */
 
-import React from 'react';
-
 import Document, {
-  Html,
   Head,
+  Html,
   Main,
   NextScript,
 } from 'next/document';
+import React from 'react';
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 

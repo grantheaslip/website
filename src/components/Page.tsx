@@ -1,7 +1,8 @@
 /** @jsx jsx */
 import { css, jsx } from '@emotion/core';
 import { FunctionComponent } from 'react';
-import Layout from './Layout';
+
+import Layout from 'components/Layout';
 
 const Page: FunctionComponent = ({ children }) => (
   <Layout>

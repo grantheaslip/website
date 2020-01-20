@@ -1,18 +1,18 @@
 /** @jsx jsx */
-import { css, jsx, Global } from '@emotion/core';
+import { css, Global, jsx } from '@emotion/core';
 import Head from 'next/head';
 import { FunctionComponent } from 'react';
 
-import { getFormattedTitle } from '../../utils';
+import { getFormattedTitle } from 'lib/utils';
 
-import appleTouchIcon180x180Png from '../assets/favicons/apple-touch-icon-180x180.png';
-import androidChrome192x192Png from '../assets/favicons/android-chrome-192x192.png';
-import browserconfigXml from '../assets/browserconfig.xml';
-import favicon16x16Png from '../assets/favicons/favicon-16x16.png';
-import favicon194x194Png from '../assets/favicons/favicon-194x194.png';
-import favicon32x32Png from '../assets/favicons/favicon-32x32.png';
-import faviconIco from '../assets/favicons/favicon.ico';
-import manifestWebmanifest from '../assets/manifest.webmanifest';
+import browserconfigXml from 'assets/browserconfig.xml';
+import androidChrome192x192Png from 'assets/favicons/android-chrome-192x192.png';
+import appleTouchIcon180x180Png from 'assets/favicons/apple-touch-icon-180x180.png';
+import favicon16x16Png from 'assets/favicons/favicon-16x16.png';
+import favicon32x32Png from 'assets/favicons/favicon-32x32.png';
+import favicon194x194Png from 'assets/favicons/favicon-194x194.png';
+import faviconIco from 'assets/favicons/favicon.ico';
+import manifestWebmanifest from 'assets/manifest.webmanifest';
 
 const globalStyles = css`
   :root {

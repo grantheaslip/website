@@ -11,10 +11,11 @@ module.exports = {
   ],
   plugins: [
     'emotion',
+    'simple-import-sort',
+    'sort-destructure-keys',
     'unicorn',
   ],
   rules: {
-    'class-methods-use-this': 'off',
     'import/prefer-default-export': 'off',
     'jsx-quotes': [
       'warn',
@@ -30,10 +31,10 @@ module.exports = {
       },
     ],
     'no-console': 'off',
-    'object-curly-newline': 'off',
     'quote-props': ['error', 'consistent-as-needed'],
     'react/prop-types': 'off',
     'react/react-in-jsx-scope': 'off',
+    'sort-destructure-keys/sort-destructure-keys': 'warn',
     'unicorn/no-unused-properties': 'warn',
   },
   settings: {
@@ -82,6 +83,15 @@ module.exports = {
             aspects: ['invalidHref', 'preferButton'],
           },
         ],
+        'no-restricted-imports': [
+          'warn',
+          {
+            'patterns': [
+              './',
+              '../'
+            ],
+          },
+        ],
         'react/jsx-filename-extension': [
           1,
           {
@@ -90,6 +100,21 @@ module.exports = {
         ],
         // Disabled until https://github.com/yannickcr/eslint-plugin-react/issues/1848 is fixed
         'react/jsx-one-expression-per-line': 'off',
+        'simple-import-sort/sort': [
+          'warn',
+          {
+            groups: [
+              // Default groups
+              ['^\\u0000'],
+              ['^@?\\w'],
+              ['^[^.]'],
+              ['^\\.'],
+              // Aliased local directories (due to tsconfig.json baseUrl)
+              ['^(components|lib|pages)(/.*|$)'],
+              ['^(assets)(/.*|$)'],
+            ],
+          },
+        ],
         '@typescript-eslint/array-type': [
           'error',
           {
@@ -104,6 +129,9 @@ module.exports = {
         'import/extensions': ['.js', '.jsx', '.ts', '.tsx'],
         'import/parsers': {
           '@typescript-eslint/parser': ['.ts', '.tsx'],
+        },
+        'import/resolver': {
+          typescript: {}
         },
       },
     },
