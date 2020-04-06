@@ -14,5 +14,16 @@
     ".next": true,
     "node_modules/": true,
     "yarn.lock": true
-  }
+  },
+  "cSpell.words": [
+    "browserconfig",
+    "etags",
+    "favicons",
+    "heaslip",
+    "hslp",
+    "js’s",
+    "linaria",
+    "mdash",
+    "thinsp"
+  ]
 }

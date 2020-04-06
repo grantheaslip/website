@@ -81,8 +81,8 @@ const Layout: FunctionComponent = ({ children }) => (
       <title>{title}</title>
 
       {/* ================
-            === Favicons ===
-            ================ */}
+          === Favicons ===
+          ================ */}
       <link
         rel='apple-touch-icon'
         sizes='180x180'
@@ -105,8 +105,8 @@ const Layout: FunctionComponent = ({ children }) => (
       <link rel='shortcut icon' href={faviconIco} />
 
       {/* =================
-            === Manifests ===
-            ================= */}
+          === Manifests ===
+          ================= */}
       <link rel='manifest' href={manifestWebmanifest} />
       <meta name='msapplication-config' content={browserconfigXml} />
     </Head>

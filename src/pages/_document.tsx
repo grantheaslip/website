@@ -25,7 +25,7 @@ class CustomHead extends Head {
           child && child.props && child.props['data-react-helmet'];
         if (child && child.type === 'title' && !isReactHelmet) {
           console.warn(
-            "Warning: <title> should not be used in _document.js's <Head>. https://err.sh/next.js/no-document-title",
+            "Warning: <title> should not be used in _document.js’s <Head>. https://err.sh/next.js/no-document-title",
           );
         }
         return child;
