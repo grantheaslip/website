@@ -19,6 +19,7 @@
 *.code-workspace
 .DS_Store
 .env
+.n-node-version
 
 # debug
 npm-debug.log*
