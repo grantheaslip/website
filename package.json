@@ -18,8 +18,6 @@
     "dev": "next",
     "eslint": "eslint . --ext js,tsx",
     "eslint-fix": "eslint . --ext js,tsx --fix",
-    "now": "now --name website",
-    "now-dev": "now dev",
     "start": "next start"
   },
   "dependencies": {

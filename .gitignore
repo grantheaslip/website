@@ -20,6 +20,7 @@
 .DS_Store
 .env
 .n-node-version
+.now
 
 # debug
 npm-debug.log*
