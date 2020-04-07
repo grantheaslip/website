@@ -1,5 +1,11 @@
 # Website changelog
 
+## 1.1.1 [2020-04-06]
+
+### Changes
+
+* Updated dependencies
+
 ## 1.1.0 [2020-01-19]
 
 ### Changes
