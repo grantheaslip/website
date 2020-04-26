@@ -1,18 +1,18 @@
 /** @jsx jsx */
-import { css, Global, jsx } from '@emotion/core';
-import Head from 'next/head';
-import { FunctionComponent } from 'react';
+import { css, Global, jsx } from "@emotion/core";
+import Head from "next/head";
+import { FunctionComponent } from "react";
 
-import { getFormattedTitle } from 'lib/utils';
+import { getFormattedTitle } from "lib/utils";
 
-import browserconfigXml from 'assets/browserconfig.xml';
-import androidChrome192x192Png from 'assets/favicons/android-chrome-192x192.png';
-import appleTouchIcon180x180Png from 'assets/favicons/apple-touch-icon-180x180.png';
-import favicon16x16Png from 'assets/favicons/favicon-16x16.png';
-import favicon32x32Png from 'assets/favicons/favicon-32x32.png';
-import favicon194x194Png from 'assets/favicons/favicon-194x194.png';
-import faviconIco from 'assets/favicons/favicon.ico';
-import manifestWebmanifest from 'assets/manifest.webmanifest';
+import browserconfigXml from "assets/browserconfig.xml";
+import androidChrome192x192Png from "assets/favicons/android-chrome-192x192.png";
+import appleTouchIcon180x180Png from "assets/favicons/apple-touch-icon-180x180.png";
+import favicon16x16Png from "assets/favicons/favicon-16x16.png";
+import favicon32x32Png from "assets/favicons/favicon-32x32.png";
+import favicon194x194Png from "assets/favicons/favicon-194x194.png";
+import faviconIco from "assets/favicons/favicon.ico";
+import manifestWebmanifest from "assets/manifest.webmanifest";
 
 const globalStyles = css`
   :root {
@@ -51,7 +51,7 @@ const globalStyles = css`
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
     margin: 0em;
-    font-family: 'Georgia', serif;
+    font-family: "Georgia", serif;
   }
 
   @media (max-width: 360px) {
@@ -84,31 +84,31 @@ const Layout: FunctionComponent = ({ children }) => (
           === Favicons ===
           ================ */}
       <link
-        rel='apple-touch-icon'
-        sizes='180x180'
+        rel="apple-touch-icon"
+        sizes="180x180"
         href={appleTouchIcon180x180Png}
       />
-      <link rel='icon' type='image/png' sizes='32x32' href={favicon32x32Png} />
+      <link rel="icon" type="image/png" sizes="32x32" href={favicon32x32Png} />
       <link
-        rel='icon'
-        type='image/png'
+        rel="icon"
+        type="image/png"
         href={favicon194x194Png}
-        sizes='194x194'
+        sizes="194x194"
       />
       <link
-        rel='icon'
-        type='image/png'
+        rel="icon"
+        type="image/png"
         href={androidChrome192x192Png}
-        sizes='192x192'
+        sizes="192x192"
       />
-      <link rel='icon' type='image/png' href={favicon16x16Png} sizes='16x16' />
-      <link rel='shortcut icon' href={faviconIco} />
+      <link rel="icon" type="image/png" href={favicon16x16Png} sizes="16x16" />
+      <link rel="shortcut icon" href={faviconIco} />
 
       {/* =================
           === Manifests ===
           ================= */}
-      <link rel='manifest' href={manifestWebmanifest} />
-      <meta name='msapplication-config' content={browserconfigXml} />
+      <link rel="manifest" href={manifestWebmanifest} />
+      <meta name="msapplication-config" content={browserconfigXml} />
     </Head>
 
     <div
