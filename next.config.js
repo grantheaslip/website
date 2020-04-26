@@ -1,30 +1,30 @@
-const TsconfigPathsWebpackPlugin = require('tsconfig-paths-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
+const TsconfigPathsWebpackPlugin = require("tsconfig-paths-webpack-plugin");
+const { BundleAnalyzerPlugin } = require("webpack-bundle-analyzer");
 
 const redirects = () => [
   {
-    source: '/index',
-    destination: '/',
+    source: "/index",
+    destination: "/",
     statusCode: 301,
   },
   {
-    source: '/:path*/index',
-    destination: '/:path*',
+    source: "/:path*/index",
+    destination: "/:path*",
     statusCode: 301,
   },
   {
-    source: '/index.html',
-    destination: '/',
+    source: "/index.html",
+    destination: "/",
     statusCode: 301,
   },
   {
-    source: '/:path*/index.html',
-    destination: '/:path*',
+    source: "/:path*/index.html",
+    destination: "/:path*",
     statusCode: 301,
   },
   {
-    source: '/:path+/',
-    destination: '/:path+',
+    source: "/:path+/",
+    destination: "/:path+",
     statusCode: 301,
   },
 ];
@@ -40,18 +40,16 @@ module.exports = {
   generateEtags: false,
   poweredByHeader: false,
   webpack: (config, options) => {
-    config.resolve.plugins.push(
-      new TsconfigPathsWebpackPlugin(),
-    );
+    config.resolve.plugins.push(new TsconfigPathsWebpackPlugin());
 
-    if (process.env.RUN_WEBPACK_BUNDLE_ANALYZER === 'true') {
+    if (process.env.RUN_WEBPACK_BUNDLE_ANALYZER === "true") {
       config.plugins.push(
         new BundleAnalyzerPlugin({
-          analyzerMode: 'static',
+          analyzerMode: "static",
           reportFilename: options.isServer
-            ? '../analyze/server.html'
-            : './analyze/client.html',
-        }),
+            ? "../analyze/server.html"
+            : "./analyze/client.html",
+        })
       );
     }
 
@@ -60,11 +58,11 @@ module.exports = {
         test: /\.(ico|png|txt)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[path][name]-[hash].[ext]',
-              outputPath: 'static',
-              publicPath: '/_next/static',
+              name: "[path][name]-[hash].[ext]",
+              outputPath: "static",
+              publicPath: "/_next/static",
             },
           },
         ],
@@ -73,18 +71,18 @@ module.exports = {
         test: /(manifest\.webmanifest|browserconfig\.xml)$/,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[path][name]-[hash].[ext]',
-              outputPath: 'static',
-              publicPath: '/_next/static',
+              name: "[path][name]-[hash].[ext]",
+              outputPath: "static",
+              publicPath: "/_next/static",
             },
           },
           {
-            loader: 'app-manifest-loader',
+            loader: "app-manifest-loader",
           },
         ],
-      },
+      }
     );
 
     return config;

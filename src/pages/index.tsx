@@ -1,8 +1,8 @@
-import Head from 'next/head';
-import { FunctionComponent } from 'react';
+import Head from "next/head";
+import { FunctionComponent } from "react";
 
-import Page from 'components/Page';
-import { getFormattedTitle } from 'lib/utils';
+import Page from "components/Page";
+import { getFormattedTitle } from "lib/utils";
 
 const title = getFormattedTitle();
 
@@ -20,8 +20,8 @@ const Home: FunctionComponent = () => (
     </p>
 
     <p>
-      If you want to get in touch, send an e-mail to{' '}
-      <a href='mailto:g@hslp.ca'>g@hslp.ca</a>.
+      If you want to get in touch, send an e-mail to{" "}
+      <a href="mailto:g@hslp.ca">g@hslp.ca</a>.
     </p>
   </Page>
 );

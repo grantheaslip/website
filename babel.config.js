@@ -2,12 +2,12 @@ module.exports = (api) => {
   api.cache.forever();
 
   return {
-    presets: ['next/babel'],
+    presets: ["next/babel"],
     plugins: [
       [
-        'emotion',
+        "emotion",
         {
-          autoLabel: process.env.NODE_ENV !== 'production',
+          autoLabel: process.env.NODE_ENV !== "production",
           cssPropOptimization: true,
           sourceMap: false,
         },

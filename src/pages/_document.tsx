@@ -1,14 +1,9 @@
 /* eslint-disable max-classes-per-file */
 
-import Document, {
-  Head,
-  Html,
-  Main,
-  NextScript,
-} from 'next/document';
-import React from 'react';
+import Document, { Head, Html, Main, NextScript } from "next/document";
+import React from "react";
 
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isDevelopment = process.env.NODE_ENV === "development";
 
 /* eslint-disable */
 
@@ -78,7 +73,7 @@ class CustomHead extends Head {
 class MyDocument extends Document {
   render() {
     return (
-      <Html lang='en-CA' dir='ltr'>
+      <Html lang="en-CA" dir="ltr">
         {isDevelopment ? <Head /> : <CustomHead />}
         <body>
           <Main />

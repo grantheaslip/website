@@ -1,6 +1,6 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { FunctionComponent } from 'react';
+import { AppProps } from "next/app";
+import Head from "next/head";
+import { FunctionComponent } from "react";
 
 const WebsiteApp: FunctionComponent<AppProps> = ({ Component, pageProps }) => (
   <>

@@ -1,10 +1,10 @@
-import Head from 'next/head';
-import { FunctionComponent } from 'react';
+import Head from "next/head";
+import { FunctionComponent } from "react";
 
-import Page from 'components/Page';
-import { getFormattedTitle } from 'lib/utils';
+import Page from "components/Page";
+import { getFormattedTitle } from "lib/utils";
 
-const title = getFormattedTitle('404');
+const title = getFormattedTitle("404");
 
 const Error: FunctionComponent = () => (
   <Page>
@@ -17,7 +17,7 @@ const Error: FunctionComponent = () => (
     <p>This page or file doesn’t exist.</p>
 
     <p>
-      <a href='/'>Click here</a> to navigate to the homepage.
+      <a href="/">Click here</a> to navigate to the homepage.
     </p>
   </Page>
 );
