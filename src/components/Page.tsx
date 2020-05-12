@@ -8,19 +8,22 @@ const Page: FunctionComponent = ({ children }) => (
   <Layout>
     <main
       css={css`
-        background-color: #fff;
-        background-color: var(--colourPageBackground);
         overflow: hidden;
-        padding: 1.5em;
-        border: 1px solid #e1e1e1;
-        border: 1px solid var(--colourPageBorder);
         float: left;
         width: 100%;
+        padding: 1.5em;
+
+        background-color: #fff;
+        background-color: var(--colourPageBackground);
+        border: 1px solid #e1e1e1;
+        border: 1px solid var(--colourPageBorder);
 
         h1 {
-          font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
           font-size: 2em;
+
           margin: 0 0 0.5em 0;
+
+          font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
           line-height: 1em;
         }
 
