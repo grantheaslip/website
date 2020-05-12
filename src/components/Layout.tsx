@@ -17,6 +17,7 @@ import manifestWebmanifest from "assets/manifest.webmanifest";
 const globalStyles = css`
   :root {
     color-scheme: light dark;
+
     --colourDocumentBackground: rgb(241, 241, 241);
     --colourPageBackground: rgb(255, 255, 255);
     --colourPageBorder: rgb(225, 225, 225);
@@ -41,17 +42,20 @@ const globalStyles = css`
 
   html,
   body {
-    color: #212121;
-    color: var(--colourText);
+    font-size: 16px;
+
+    margin: 0;
+
     background: #f1f1f1;
     background: var(--colourDocumentBackground);
-    font-size: 16px;
-    line-height: 1.5em;
+
+    color: #212121;
+    color: var(--colourText);
     font-weight: 400;
+    font-family: "Georgia", serif;
+    line-height: 1.5em;
     text-rendering: optimizeLegibility;
     -webkit-text-size-adjust: 100%;
-    margin: 0em;
-    font-family: "Georgia", serif;
   }
 
   @media (max-width: 360px) {
@@ -113,11 +117,12 @@ const Layout: FunctionComponent = ({ children }) => (
 
     <div
       css={css`
+        overflow: hidden;
         width: 100%;
         max-width: 500px;
         margin: 0 auto;
+
         border: 1em solid transparent;
-        overflow: hidden;
       `}
     >
       {children}
