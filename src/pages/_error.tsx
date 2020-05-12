@@ -22,4 +22,10 @@ const Error: FunctionComponent = () => (
   </Page>
 );
 
+export const config = {
+  // https://github.com/zeit/next.js/pull/11949
+  // eslint-disable-next-line @typescript-eslint/camelcase
+  unstable_runtimeJS: false,
+};
+
 export default Error;
