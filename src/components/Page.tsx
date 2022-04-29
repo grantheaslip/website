@@ -1,10 +1,9 @@
-/** @jsx jsx */
-import { css, jsx } from "@emotion/core";
-import { FunctionComponent } from "react";
+import { css } from "@emotion/react";
+import { FC, ReactNode } from "react";
 
-import Layout from "components/Layout";
+import Layout from "src/components/Layout";
 
-const Page: FunctionComponent = ({ children }) => (
+const Page: FC<{ children: ReactNode }> = ({ children }) => (
   <Layout>
     <main
       css={css`
@@ -14,15 +13,14 @@ const Page: FunctionComponent = ({ children }) => (
         padding: 1.5em;
 
         background-color: #fff;
-        background-color: var(--colourPageBackground);
+        background-color: var(--color-page-background);
         border: 1px solid #e1e1e1;
-        border: 1px solid var(--colourPageBorder);
+        border: 1px solid var(--color-page-border);
 
         h1 {
+          margin: 0 0 0.5em;
+
           font-size: 2em;
-
-          margin: 0 0 0.5em 0;
-
           font-family: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
           line-height: 1em;
         }
@@ -37,7 +35,7 @@ const Page: FunctionComponent = ({ children }) => (
 
         a {
           color: #006ac1;
-          color: var(--colourPageLink);
+          color: var(--color-page-link);
           text-decoration: underline;
         }
       `}

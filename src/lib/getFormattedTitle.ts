@@ -1,4 +1,4 @@
-export function getFormattedTitle(title?: string) {
+const getFormattedTitle = (title?: string) => {
   if (typeof title === "string") {
     // This is the same as `${title}&thinsp;&mdash;&thinsp;Grant Heaslip`
     // eslint-disable-next-line no-irregular-whitespace
@@ -6,4 +6,6 @@ export function getFormattedTitle(title?: string) {
   }
 
   return "Grant Heaslip";
-}
+};
+
+export default getFormattedTitle;

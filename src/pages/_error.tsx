@@ -1,8 +1,8 @@
 import Head from "next/head";
 import { FunctionComponent } from "react";
 
-import Page from "components/Page";
-import { getFormattedTitle } from "lib/utils";
+import Page from "src/components/Page";
+import getFormattedTitle from "src/lib/getFormattedTitle";
 
 const title = getFormattedTitle("404");
 
@@ -23,8 +23,6 @@ const Error: FunctionComponent = () => (
 );
 
 export const config = {
-  // https://github.com/zeit/next.js/pull/11949
-  // eslint-disable-next-line @typescript-eslint/camelcase
   unstable_runtimeJS: false,
 };
 

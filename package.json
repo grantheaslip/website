@@ -1,59 +1,49 @@
 {
   "name": "website",
   "version": "1.1.1",
-  "description": "The code that builds and serves g.hslp.ca. Powered by Next.js.",
+  "description": "The code that builds and serves grantheaslip.ca. Powered by Next.js.",
   "author": {
     "name": "Grant Heaslip",
-    "email": "g@hslp.ca",
-    "url": "https://g.hslp.ca/"
+    "email": "grant@grantheaslip.ca",
+    "url": "https://grantheaslip.ca/"
   },
   "private": true,
   "license": "BSD-3-Clause",
   "engines": {
-    "node": "12.x"
+    "node": "14.x"
   },
   "scripts": {
-    "build": "next build",
-    "dev": "next",
-    "eslint": "eslint . --ext js,tsx",
-    "eslint-fix": "eslint . --ext js,tsx --fix",
+    "build": "run-s pre-build next-build",
+    "build-and-lint": "run-p --print-label build lint",
+    "build-and-start": "run-s build start",
+    "dev": "run-s pre-build next-dev",
+    "eslint": "eslint . --ext js,ts,tsx",
+    "install-if-package-changed": "if [ \"$CI\" != 'true' ]; then package-changed; fi",
+    "lint": "run-p --print-label eslint stylelint",
+    "pre-build": "npm run install-if-package-changed",
+    "next-build": "next build",
+    "next-dev": "next dev",
     "start": "next start",
-    "stylelint": "stylelint ./src/**/*.ts*"
+    "stylelint": "stylelint ./src/**/*.ts*",
+    "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@emotion/core": "^10.0.28",
-    "@types/node": "^12.12.37",
-    "@types/react": "^16.9.34",
-    "@types/react-dom": "^16.9.6",
-    "app-manifest-loader": "^2.4.1",
-    "babel-plugin-emotion": "^10.0.33",
-    "file-loader": "^4.3.0",
-    "next": "^9.4.0",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "typescript": "^3.8.3",
-    "webpack": "^4.43.0",
-    "webpack-bundle-analyzer": "^3.7.0"
-  },
-  "devDependencies": {
-    "@typescript-eslint/eslint-plugin": "^2.29.0",
-    "@typescript-eslint/parser": "^2.29.0",
-    "eslint": "^6.8.0",
-    "eslint-config-airbnb": "^18.1.0",
-    "eslint-config-prettier": "^6.11.0",
-    "eslint-import-resolver-typescript": "^2.0.0",
-    "eslint-plugin-emotion": "^10.0.27",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-jsx-a11y": "^6.2.3",
-    "eslint-plugin-prettier": "^3.1.3",
-    "eslint-plugin-react": "^7.19.0",
-    "eslint-plugin-react-hooks": "^2.5.1",
-    "eslint-plugin-simple-import-sort": "^5.0.2",
-    "eslint-plugin-sort-destructure-keys": "^1.3.4",
-    "eslint-plugin-unicorn": "^18.0.1",
-    "prettier": "^2.0.5",
-    "stylelint": "^13.3.3",
-    "stylelint-config-standard": "^20.0.0",
-    "stylelint-order": "^4.0.0"
+    "@emotion/react": "^11.9.0",
+    "@grantheaslip/eslint-config": "^0.1.1",
+    "@grantheaslip/stylelint-config": "^0.1.1",
+    "@types/node": "^14.18.16",
+    "@types/react": "^18.0.8",
+    "@types/react-dom": "^18.0.3",
+    "@types/web-app-manifest": "^1.0.2",
+    "eslint": "^8.14.0",
+    "next": "^12.1.5",
+    "npm-run-all": "^4.1.5",
+    "package-changed": "^1.9.0",
+    "prettier": "^2.6.2",
+    "react": "~18.0.0",
+    "react-dom": "~18.0.0",
+    "stylelint": "^14.8.0",
+    "typescript": "^4.6.4",
+    "webpack-bundle-analyzer": "^4.5.0"
   }
 }
