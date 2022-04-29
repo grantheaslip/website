@@ -18,7 +18,7 @@
     "build-and-start": "run-s build start",
     "dev": "run-s pre-build next-dev",
     "eslint": "eslint . --ext js,ts,tsx",
-    "install-if-package-changed": "if [ \"$CI\" != '1' ]; then echo $CI && package-changed; fi",
+    "install-if-package-changed": "if [ \"$VERCEL\" != '1' ]; then package-changed; fi",
     "lint": "run-p --print-label eslint stylelint",
     "pre-build": "npm run install-if-package-changed",
     "next-build": "next build",
