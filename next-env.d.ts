@@ -1,9 +1,5 @@
-/* eslint-disable spaced-comment */
-
 /// <reference types="next" />
-/// <reference types="next/types/global" />
+/// <reference types="next/image-types/global" />
 
-declare module '*.ico';
-declare module '*.png';
-declare module '*.webmanifest';
-declare module '*.xml';
+// NOTE: This file should not be edited
+// see https://nextjs.org/docs/basic-features/typescript for more information.

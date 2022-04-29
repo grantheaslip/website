@@ -1,8 +1,6 @@
-/* eslint-disable max-classes-per-file */
-
 import Document, { Head, Html, Main, NextScript } from "next/document";
-import React from "react";
 
+// eslint-disable-next-line functional/no-class
 class MyDocument extends Document {
   render() {
     return (

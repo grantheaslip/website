@@ -1,37 +1,34 @@
-/** @jsx jsx */
-import { css, Global, jsx } from "@emotion/core";
+import { css, Global } from "@emotion/react";
 import Head from "next/head";
-import { FunctionComponent } from "react";
+import { FC, ReactNode } from "react";
 
-import { getFormattedTitle } from "lib/utils";
-
-import browserconfigXml from "assets/browserconfig.xml";
-import androidChrome192x192Png from "assets/favicons/android-chrome-192x192.png";
-import appleTouchIcon180x180Png from "assets/favicons/apple-touch-icon-180x180.png";
-import favicon16x16Png from "assets/favicons/favicon-16x16.png";
-import favicon32x32Png from "assets/favicons/favicon-32x32.png";
-import favicon194x194Png from "assets/favicons/favicon-194x194.png";
-import faviconIco from "assets/favicons/favicon.ico";
-import manifestWebmanifest from "assets/manifest.webmanifest";
+import getFormattedTitle from "src/lib/getFormattedTitle";
+import getManifestDataUrl from "src/lib/getManifestDataUrl";
+import androidChrome192x192Png from "src/static/favicons/android-chrome-192x192.png";
+import appleTouchIcon180x180Png from "src/static/favicons/apple-touch-icon-180x180.png";
+import faviconIco from "src/static/favicons/favicon.ico";
+import favicon16x16Png from "src/static/favicons/favicon-16x16.png";
+import favicon32x32Png from "src/static/favicons/favicon-32x32.png";
+import favicon194x194Png from "src/static/favicons/favicon-194x194.png";
 
 const globalStyles = css`
   :root {
     color-scheme: light dark;
 
-    --colourDocumentBackground: rgb(241, 241, 241);
-    --colourPageBackground: rgb(255, 255, 255);
-    --colourPageBorder: rgb(225, 225, 225);
-    --colourPageLink: rgb(0, 136, 204);
-    --colourText: rgb(33, 33, 33);
+    --color-document-background: rgb(241, 241, 241);
+    --color-page-background: rgb(255, 255, 255);
+    --color-page-border: rgb(225, 225, 225);
+    --color-page-link: rgb(0, 136, 204);
+    --color-text: rgb(33, 33, 33);
   }
 
   @media (prefers-color-scheme: dark) {
     :root {
-      --colourDocumentBackground: rgb(32, 32, 32);
-      --colourPageBackground: rgb(0, 0, 0);
-      --colourPageBorder: rgb(225, 225, 225);
-      --colourPageLink: rgb(102, 187, 255);
-      --colourText: rgb(222, 222, 222);
+      --color-document-background: rgb(32, 32, 32);
+      --color-page-background: rgb(0, 0, 0);
+      --color-page-border: rgb(225, 225, 225);
+      --color-page-link: rgb(102, 187, 255);
+      --color-text: rgb(222, 222, 222);
     }
   }
 
@@ -42,20 +39,19 @@ const globalStyles = css`
 
   html,
   body {
-    font-size: 16px;
-
     margin: 0;
 
     background: #f1f1f1;
-    background: var(--colourDocumentBackground);
+    background: var(--color-document-background);
 
     color: #212121;
-    color: var(--colourText);
+    color: var(--color-text);
     font-weight: 400;
+    font-size: 16px;
     font-family: "Georgia", serif;
     line-height: 1.5em;
     text-rendering: optimizeLegibility;
-    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
   }
 
   @media (max-width: 360px) {
@@ -70,64 +66,76 @@ const globalStyles = css`
     margin-top: 5vh;
   }
   body * {
-    -webkit-box-sizing: border-box;
     box-sizing: border-box;
   }
 `;
 
 const title = getFormattedTitle();
 
-const Layout: FunctionComponent = ({ children }) => (
-  <>
-    <Global styles={globalStyles} />
+const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+  const manifestDataUrl = getManifestDataUrl();
 
-    <Head>
-      <title>{title}</title>
+  return (
+    <>
+      <Global styles={globalStyles} />
 
-      {/* ================
-          === Favicons ===
-          ================ */}
-      <link
-        rel="apple-touch-icon"
-        sizes="180x180"
-        href={appleTouchIcon180x180Png}
-      />
-      <link rel="icon" type="image/png" sizes="32x32" href={favicon32x32Png} />
-      <link
-        rel="icon"
-        type="image/png"
-        href={favicon194x194Png}
-        sizes="194x194"
-      />
-      <link
-        rel="icon"
-        type="image/png"
-        href={androidChrome192x192Png}
-        sizes="192x192"
-      />
-      <link rel="icon" type="image/png" href={favicon16x16Png} sizes="16x16" />
-      <link rel="shortcut icon" href={faviconIco} />
+      <Head>
+        <title>{title}</title>
 
-      {/* =================
-          === Manifests ===
-          ================= */}
-      <link rel="manifest" href={manifestWebmanifest} />
-      <meta name="msapplication-config" content={browserconfigXml} />
-    </Head>
+        {/* ============
+        === Favicons ===
+        =============*/}
+        <link
+          rel="apple-touch-icon"
+          sizes="180x180"
+          href={appleTouchIcon180x180Png.src}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          sizes="32x32"
+          href={favicon32x32Png.src}
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href={favicon194x194Png.src}
+          sizes="194x194"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href={androidChrome192x192Png.src}
+          sizes="192x192"
+        />
+        <link
+          rel="icon"
+          type="image/png"
+          href={favicon16x16Png.src}
+          sizes="16x16"
+        />
+        <link rel="shortcut icon" href={faviconIco.src} />
 
-    <div
-      css={css`
-        overflow: hidden;
-        width: 100%;
-        max-width: 500px;
-        margin: 0 auto;
+        {/* ============
+        === Manifest ===
+        ============ */}
+        <link rel="manifest" href={manifestDataUrl} />
+      </Head>
 
-        border: 1em solid transparent;
-      `}
-    >
-      {children}
-    </div>
-  </>
-);
+      <div
+        css={css`
+          overflow: hidden;
+          width: 100%;
+          max-width: 500px;
+          margin: 0 auto;
+
+          border: 1em solid transparent;
+        `}
+      >
+        {children}
+      </div>
+    </>
+  );
+};
 
 export default Layout;
