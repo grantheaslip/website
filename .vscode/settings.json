@@ -4,19 +4,21 @@
     "favicons",
     "grantheaslip",
     "heaslip",
-    "js’s",
     "mdash",
+    "packagehash",
     "rushstack",
-    "stylelint",
     "thinsp",
-    "Vercel"
+    "vercel",
+    "yalc"
   ],
   "editor.codeActionsOnSave": {
-    "source.fixAll.eslint": true,
-    "source.fixAll.stylelint": true,
+    "source.fixAll.eslint": "explicit"
   },
   "editor.formatOnSave": false,
   "editor.tabSize": 2,
+  "editor.unicodeHighlight.allowedCharacters": {
+    "’": true
+  },
   "eslint.validate": [
     "javascript",
     "javascriptreact",
@@ -24,16 +26,25 @@
     "typescriptreact"
   ],
   "files.exclude": {
-    ".next": true,
-    "node_modules/": true
+    ".next/": true,
+    ".swc/": true,
+    ".yalc/": true
   },
+  "files.insertFinalNewline": true,
+  "files.trimFinalNewlines": true,
+  "files.trimTrailingWhitespace": true,
+  "js/ts.implicitProjectConfig.checkJs": true,
   "search.exclude": {
-    "**/node_modules": true,
-    "package-lock.json": true
+    "/package-lock.json": true
   },
-  "stylelint.validate": [
-    "typescript",
-    "typescriptreact"
-  ],
+  "typescript.enablePromptUseWorkspaceTsdk": true,
+  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifierEnding": "minimal",
+  "typescript.preferences.quoteStyle": "single",
   "typescript.tsdk": "node_modules/typescript/lib",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "[github-actions-workflow][javascript][json][jsonc][typescript][typescriptreact][yaml]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true
+  }
 }

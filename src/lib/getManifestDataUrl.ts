@@ -1,9 +1,3 @@
-// This is actually an import from @types/web-app-manifest; there is no
-// corresponding web-app-manifest package.
-//
-// https://github.com/DefinitelyTyped/DefinitelyTyped/blob/master/types/web-app-manifest/index.d.ts
-//
-// eslint-disable-next-line import/no-unresolved
 import { WebAppManifest } from "web-app-manifest";
 
 import getFullyQualifiedUrl from "src/lib/getFullyQualifiedUrl";
@@ -21,33 +15,33 @@ const getManifestDataUrl = () => {
     display: "browser",
     icons: [
       {
-        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome36Png.src }),
         sizes: "36x36",
+        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome36Png.src }),
         type: "image/png",
       },
       {
-        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome48Png.src }),
         sizes: "48x48",
+        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome48Png.src }),
         type: "image/png",
       },
       {
-        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome72Png.src }),
         sizes: "72x72",
+        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome72Png.src }),
         type: "image/png",
       },
       {
-        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome96Png.src }),
         sizes: "96x96",
+        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome96Png.src }),
         type: "image/png",
       },
       {
-        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome144Png.src }),
         sizes: "144x144",
+        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome144Png.src }),
         type: "image/png",
       },
       {
-        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome192Png.src }),
         sizes: "192x192",
+        src: getFullyQualifiedUrl({ rootRelativeUrl: androidChrome192Png.src }),
         type: "image/png",
       },
     ],
@@ -59,7 +53,7 @@ const getManifestDataUrl = () => {
   };
 
   return `data:application/manifest+json,${encodeURIComponent(
-    JSON.stringify(webManifestContent)
+    JSON.stringify(webManifestContent),
   )}`;
 };
 

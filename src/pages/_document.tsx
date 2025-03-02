@@ -1,6 +1,5 @@
 import Document, { Head, Html, Main, NextScript } from "next/document";
 
-// eslint-disable-next-line functional/no-class
 class MyDocument extends Document {
   render() {
     return (
