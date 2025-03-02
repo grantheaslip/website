@@ -1,6 +1,6 @@
 {
   "name": "website",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "The code that builds and serves grantheaslip.ca. Powered by Next.js.",
   "author": {
     "name": "Grant Heaslip",
@@ -10,40 +10,44 @@
   "private": true,
   "license": "BSD-3-Clause",
   "engines": {
-    "node": "14.x"
+    "node": "22.x",
+    "npm": "10.x"
   },
   "scripts": {
     "build": "run-s pre-build next-build",
-    "build-and-lint": "run-p --print-label build lint",
+    "build-and-lint": "run-p -l build lint",
     "build-and-start": "run-s build start",
     "dev": "run-s pre-build next-dev",
-    "eslint": "eslint . --ext js,ts,tsx",
+    "eslint-check": "eslint . --ext='js,ts,tsx'",
+    "eslint-fix": "eslint . --ext='js,ts,tsx' --fix",
     "install-if-package-changed": "if [ \"$CI\" != '1' ] && [ \"$CI\" != 'true' ]; then package-changed; fi",
-    "lint": "run-p --print-label eslint stylelint",
+    "lint": "run-p -l eslint-check prettier-check",
     "pre-build": "npm run install-if-package-changed",
+    "prettier-check": "prettier --check .",
+    "prettier-write": "prettier --write .",
     "next-build": "next build",
     "next-dev": "next dev",
     "start": "next start",
-    "stylelint": "stylelint ./src/**/*.ts*",
-    "type-check": "tsc --noEmit"
+    "tsc-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@emotion/react": "^11.9.0",
-    "@grantheaslip/eslint-config": "^0.1.1",
-    "@grantheaslip/stylelint-config": "^0.1.1",
-    "@types/node": "^14.18.16",
-    "@types/react": "^18.0.8",
-    "@types/react-dom": "^18.0.3",
-    "@types/web-app-manifest": "^1.0.2",
-    "eslint": "^8.14.0",
-    "next": "^12.1.5",
+    "@emotion/react": "^11.14.0",
+    "@grantheaslip/eslint-config": "^0.2.0",
+    "@types/eslint": "^8.56.12",
+    "@types/node": "^22.13.8",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "@types/web-app-manifest": "^1.0.9",
+    "eslint": "^8.57.1",
+    "next": "^15.2.0",
     "npm-run-all": "^4.1.5",
-    "package-changed": "^1.9.0",
-    "prettier": "^2.6.2",
-    "react": "~18.0.0",
-    "react-dom": "~18.0.0",
-    "stylelint": "^14.8.0",
-    "typescript": "^4.6.4",
-    "webpack-bundle-analyzer": "^4.5.0"
+    "package-changed": "^3.0.0",
+    "prettier": "^3.5.2",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "typescript": "^5.8.2"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^15.2.0"
   }
 }
