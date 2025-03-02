@@ -1,6 +1,6 @@
 import { css, Global } from "@emotion/react";
 import Head from "next/head";
-import { FC, ReactNode } from "react";
+import { FC, memo, ReactNode } from "react";
 
 import getFormattedTitle from "src/lib/getFormattedTitle";
 import getManifestDataUrl from "src/lib/getManifestDataUrl";
@@ -72,7 +72,7 @@ const globalStyles = css`
 
 const title = getFormattedTitle();
 
-const Layout: FC<{ children: ReactNode }> = ({ children }) => {
+const Layout: FC<{ children: ReactNode }> = memo(({ children }) => {
   const manifestDataUrl = getManifestDataUrl();
 
   return (
@@ -136,6 +136,8 @@ const Layout: FC<{ children: ReactNode }> = ({ children }) => {
       </div>
     </>
   );
-};
+});
+
+Layout.displayName = "Layout";
 
 export default Layout;

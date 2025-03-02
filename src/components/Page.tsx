@@ -1,9 +1,9 @@
 import { css } from "@emotion/react";
-import { FC, ReactNode } from "react";
+import { FC, memo, ReactNode } from "react";
 
 import Layout from "src/components/Layout";
 
-const Page: FC<{ children: ReactNode }> = ({ children }) => (
+const Page: FC<{ children: ReactNode }> = memo(({ children }) => (
   <Layout>
     <main
       css={css`
@@ -43,6 +43,8 @@ const Page: FC<{ children: ReactNode }> = ({ children }) => (
       {children}
     </main>
   </Layout>
-);
+));
+
+Page.displayName = "Page";
 
 export default Page;
