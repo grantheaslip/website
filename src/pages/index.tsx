@@ -1,18 +1,19 @@
 import Head from "next/head";
-import { FunctionComponent } from "react";
+import { FC } from "react";
 
+import MainHeading from "src/components/MainHeading";
 import Page from "src/components/Page";
 import getFormattedTitle from "src/lib/getFormattedTitle";
 
 const title = getFormattedTitle();
 
-const Home: FunctionComponent = () => (
+const Home: FC = () => (
   <Page>
     <Head>
       <title>{title}</title>
     </Head>
 
-    <h1>Grant Heaslip</h1>
+    <MainHeading>Grant Heaslip</MainHeading>
 
     <p>I’m a web developer living in Toronto, Canada.</p>
 
