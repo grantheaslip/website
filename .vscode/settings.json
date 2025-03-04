@@ -15,9 +15,13 @@
     "source.fixAll.eslint": "explicit"
   },
   "editor.formatOnSave": false,
+  "editor.quickSuggestions": {
+    "strings": "on"
+  },
   "editor.tabSize": 2,
   "editor.unicodeHighlight.allowedCharacters": {
-    "’": true
+    "’": true,
+    "–": true
   },
   "eslint.validate": [
     "javascript",
@@ -25,6 +29,9 @@
     "typescript",
     "typescriptreact"
   ],
+  "files.associations": {
+    "*.css": "tailwindcss"
+  },
   "files.exclude": {
     ".next/": true,
     ".swc/": true,
@@ -38,12 +45,12 @@
     "/package-lock.json": true
   },
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifierEnding": "minimal",
-  "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "double",
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
-  "[github-actions-workflow][javascript][json][jsonc][typescript][typescriptreact][yaml]": {
+  "[github-actions-workflow][javascript][json][jsonc][tailwindcss][typescript][typescriptreact][yaml]": {
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "editor.formatOnSave": true
   }
