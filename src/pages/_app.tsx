@@ -1,3 +1,5 @@
+import "src/css/global.css";
+
 import { AppProps } from "next/app";
 import { FunctionComponent } from "react";
 
