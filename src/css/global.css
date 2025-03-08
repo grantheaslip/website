@@ -1,9 +1,0 @@
-@import "tailwindcss";
-
-@theme {
-  --breakpoint-xs: 22.5rem;
-}
-
-#__next {
-  @apply mt-[5vh] flex justify-center p-4;
-}
