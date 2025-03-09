@@ -11,8 +11,17 @@ const eslintConfig = {
     "@grantheaslip/eslint-config/next",
     "@grantheaslip/eslint-config/typescript",
   ],
+  plugins: ["@emotion/eslint-plugin"],
   rules: {
-    "@next/next/no-html-link-for-pages": "off",
+    "@emotion/syntax-preference": ["warn", "object"],
+    "no-restricted-syntax": [
+      "warn",
+      {
+        message: "Use cssVariables.* rather than hard-coded variable name",
+        selector:
+          "Literal[value=/^.*var\\(.*\\)/i], TemplateElement[value.cooked=/^.*var\\(.*\\)/i]",
+      },
+    ],
   },
 };
 

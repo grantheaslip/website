@@ -2,7 +2,7 @@ import Head from "next/head";
 import { FunctionComponent } from "react";
 
 import Page from "src/components/Page";
-import getFormattedTitle from "src/lib/getFormattedTitle";
+import getFormattedTitle from "src/utils/getFormattedTitle";
 
 const title = getFormattedTitle();
 

@@ -15,8 +15,8 @@
   },
   "scripts": {
     "build": "run-s pre-build next-build",
-    "build-and-lint": "run-p -l build lint",
-    "build-and-start": "run-s build start",
+    "build-lint": "run-p -l build lint",
+    "build-start": "run-s build next-start",
     "dev": "run-s pre-build next-dev",
     "eslint-check": "eslint . --ext='js,ts,tsx'",
     "eslint-fix": "eslint . --ext='js,ts,tsx' --fix",
@@ -26,28 +26,29 @@
     "prettier-check": "prettier --check .",
     "prettier-write": "prettier --write .",
     "next-build": "next build",
-    "next-dev": "next dev",
-    "start": "next start",
+    "next-dev": "next dev --turbo",
+    "next-start": "next start",
     "tsc-check": "tsc --noEmit"
   },
   "dependencies": {
+    "@emotion/eslint-plugin": "^11.12.0",
     "@emotion/react": "^11.14.0",
     "@grantheaslip/eslint-config": "^0.2.0",
     "@types/eslint": "^8.56.12",
-    "@types/node": "^22.13.8",
+    "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/web-app-manifest": "^1.0.9",
     "eslint": "^8.57.1",
-    "next": "^15.2.0",
+    "next": "^15.2.1",
     "npm-run-all": "^4.1.5",
     "package-changed": "^3.0.0",
-    "prettier": "^3.5.2",
+    "prettier": "^3.5.3",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.2.0"
+    "@next/bundle-analyzer": "^15.2.1"
   }
 }

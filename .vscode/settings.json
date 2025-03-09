@@ -1,6 +1,7 @@
 {
   "cSpell.words": [
     "browserconfig",
+    "comeau",
     "favicons",
     "grantheaslip",
     "heaslip",
@@ -17,7 +18,8 @@
   "editor.formatOnSave": false,
   "editor.tabSize": 2,
   "editor.unicodeHighlight.allowedCharacters": {
-    "’": true
+    "’": true,
+    "–": true
   },
   "eslint.validate": [
     "javascript",
@@ -26,8 +28,8 @@
     "typescriptreact"
   ],
   "files.exclude": {
+    ".packagehash": true,
     ".next/": true,
-    ".swc/": true,
     ".yalc/": true
   },
   "files.insertFinalNewline": true,
@@ -38,9 +40,14 @@
     "/package-lock.json": true
   },
   "typescript.enablePromptUseWorkspaceTsdk": true,
-  "typescript.preferences.importModuleSpecifier": "relative",
+  "typescript.preferences.autoImportSpecifierExcludeRegexes": [
+    "@emotion/react/.*",
+    "^next/dist/.*",
+    "^styled-jsx/.*"
+  ],
+  "typescript.preferences.importModuleSpecifier": "non-relative",
   "typescript.preferences.importModuleSpecifierEnding": "minimal",
-  "typescript.preferences.quoteStyle": "single",
+  "typescript.preferences.quoteStyle": "double",
   "typescript.tsdk": "node_modules/typescript/lib",
   "typescript.updateImportsOnFileMove.enabled": "always",
   "[github-actions-workflow][javascript][json][jsonc][typescript][typescriptreact][yaml]": {

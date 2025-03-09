@@ -17,4 +17,4 @@ jobs:
         run: npm ci --omit=dev
 
       - name: Build and run linters
-        run: npm run build-and-lint
+        run: npm run build-lint
