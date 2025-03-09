@@ -1,24 +1,24 @@
 import Head from "next/head";
-import { FC } from "react";
+import Link from "next/link";
+import { FunctionComponent } from "react";
 
-import MainHeading from "src/components/MainHeading";
 import Page from "src/components/Page";
-import getFormattedTitle from "src/lib/getFormattedTitle";
+import getFormattedTitle from "src/utils/getFormattedTitle";
 
 const title = getFormattedTitle("404");
 
-const Error: FC = () => (
+const Error: FunctionComponent = () => (
   <Page>
     <Head>
       <title>{title}</title>
     </Head>
 
-    <MainHeading>404: Not found</MainHeading>
+    <h1>404: Not found</h1>
 
     <p>This page or file doesn’t exist.</p>
 
     <p>
-      <a href="/">Click here</a> to navigate to the homepage.
+      <Link href="/">Click here</Link> to navigate to the homepage.
     </p>
   </Page>
 );

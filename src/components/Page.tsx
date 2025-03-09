@@ -1,23 +1,40 @@
+import { css } from "@emotion/react";
 import { FC, memo, ReactNode } from "react";
-import { twMerge } from "tailwind-merge";
 
 import Layout from "src/components/Layout";
+import { fontSansSerif } from "src/styles/fontStyles";
+import cssVariables from "src/values/cssVariables";
 
-const Page: FC<{ children: ReactNode; className?: string }> = memo(
-  ({ children, className, ...remainingProps }) => (
-    <Layout>
-      <main
-        className={twMerge(
-          "flex w-full max-w-lg flex-col gap-y-4 overflow-hidden border-1 border-neutral-200 bg-white p-6 dark:bg-black [&_a]:text-sky-600 [&_a]:underline dark:[&_a]:text-sky-400",
-          className,
-        )}
-        {...remainingProps}
-      >
-        {children}
-      </main>
-    </Layout>
-  ),
+const main = css(
+  {
+    backgroundColor: cssVariables.pageBackground,
+    border: `1px solid ${cssVariables.pageBorder}`,
+    display: "flex",
+    flexDirection: "column",
+    gap: "1rem",
+    maxWidth: "32rem",
+    padding: "1.5rem",
+    width: "100%",
+  },
+  {
+    a: {
+      color: cssVariables.pageLink,
+    },
+    h1: [
+      fontSansSerif,
+      {
+        fontSize: "2.25rem",
+        lineHeight: 1,
+      },
+    ],
+  },
 );
+
+const Page: FC<{ children: ReactNode }> = memo(({ children }) => (
+  <Layout>
+    <main css={main}>{children}</main>
+  </Layout>
+));
 
 Page.displayName = "Page";
 

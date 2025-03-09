@@ -1,7 +1,5 @@
 /** @type {import("prettier").Config} */
 const prettierConfig = {
-  plugins: ["prettier-plugin-tailwindcss"],
-  tailwindStylesheet: "./src/css/global.css",
   trailingComma: "all",
   // eslint-disable-next-line sort-keys-fix/sort-keys-fix
   overrides: [
