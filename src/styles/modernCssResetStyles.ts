@@ -9,7 +9,6 @@ import { css } from "@emotion/react";
  * @see https://www.joshwcomeau.com/css/custom-css-reset/
  */
 // prettier-ignore
-// eslint-disable-next-line @emotion/syntax-preference
 const modernCssResetStyles = css`
   /* 1. Use a more-intuitive box-sizing model */
   *, *::before, *::after {

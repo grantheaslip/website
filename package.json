@@ -7,6 +7,7 @@
     "email": "grant@grantheaslip.ca",
     "url": "https://grantheaslip.ca/"
   },
+  "type": "module",
   "private": true,
   "license": "BSD-3-Clause",
   "engines": {
@@ -18,8 +19,8 @@
     "build-lint": "run-p -l build lint",
     "build-start": "run-s build next-start",
     "dev": "run-s pre-build next-dev",
-    "eslint-check": "eslint . --ext='js,ts,tsx'",
-    "eslint-fix": "eslint . --ext='js,ts,tsx' --fix",
+    "eslint-check": "eslint",
+    "eslint-fix": "eslint . --fix",
     "install-if-package-changed": "if [ \"$CI\" != '1' ] && [ \"$CI\" != 'true' ]; then package-changed; fi",
     "lint": "run-p -l eslint-check prettier-check",
     "pre-build": "npm run install-if-package-changed",
@@ -31,16 +32,15 @@
     "tsc-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@emotion/eslint-plugin": "^11.12.0",
     "@emotion/react": "^11.14.0",
-    "@grantheaslip/eslint-config": "^0.2.0",
-    "@types/eslint": "^8.56.12",
+    "@grantheaslip/eslint-config": "^0.3.1",
+    "@types/eslint": "^9.6.1",
     "@types/node": "^22.13.10",
     "@types/react": "^19.0.10",
     "@types/react-dom": "^19.0.4",
     "@types/web-app-manifest": "^1.0.9",
-    "eslint": "^8.57.1",
-    "next": "^15.2.1",
+    "eslint": "^9.22.0",
+    "next": "^15.2.2",
     "npm-run-all": "^4.1.5",
     "package-changed": "^3.0.0",
     "prettier": "^3.5.3",
@@ -49,6 +49,6 @@
     "typescript": "^5.8.2"
   },
   "devDependencies": {
-    "@next/bundle-analyzer": "^15.2.1"
+    "@next/bundle-analyzer": "^15.2.2"
   }
 }

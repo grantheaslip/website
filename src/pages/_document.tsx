@@ -2,7 +2,7 @@ import { Head, Html, Main, NextScript } from "next/document";
 import { FC } from "react";
 
 const Document: FC = () => (
-  <Html lang="en-CA" dir="ltr">
+  <Html dir="ltr" lang="en-CA">
     <Head />
     <body>
       <Main />

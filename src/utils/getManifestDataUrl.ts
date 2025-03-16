@@ -6,6 +6,7 @@ import androidChrome72Png from "src/static/favicons/android-chrome-72x72.png";
 import androidChrome96Png from "src/static/favicons/android-chrome-96x96.png";
 import androidChrome144Png from "src/static/favicons/android-chrome-144x144.png";
 import androidChrome192Png from "src/static/favicons/android-chrome-192x192.png";
+
 import getFullyQualifiedUrl from "src/utils/getFullyQualifiedUrl";
 
 const getManifestDataUrl = () => {

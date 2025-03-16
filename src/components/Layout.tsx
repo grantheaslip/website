@@ -4,10 +4,11 @@ import { FC, memo, ReactNode } from "react";
 
 import androidChrome192x192Png from "src/static/favicons/android-chrome-192x192.png";
 import appleTouchIcon180x180Png from "src/static/favicons/apple-touch-icon-180x180.png";
-import faviconIco from "src/static/favicons/favicon.ico";
 import favicon16x16Png from "src/static/favicons/favicon-16x16.png";
 import favicon32x32Png from "src/static/favicons/favicon-32x32.png";
 import favicon194x194Png from "src/static/favicons/favicon-194x194.png";
+import faviconIco from "src/static/favicons/favicon.ico";
+
 import globalStyles from "src/styles/globalStyles";
 import getFormattedTitle from "src/utils/getFormattedTitle";
 import getManifestDataUrl from "src/utils/getManifestDataUrl";
@@ -21,6 +22,8 @@ const Layout: FC<{ children: ReactNode }> = memo(({ children }) => (
 
     <Head>
       <title>{title}</title>
+
+      {/* eslint-disable perfectionist/sort-jsx-props */}
 
       {/* ============
         === Favicons ===
@@ -61,6 +64,8 @@ const Layout: FC<{ children: ReactNode }> = memo(({ children }) => (
         ============ */}
       <link rel="manifest" href={manifestDataUrl} />
     </Head>
+
+    {/* eslint-enable perfectionist/sort-jsx-props */}
 
     {children}
   </>
